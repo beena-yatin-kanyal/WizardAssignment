@@ -72,7 +72,8 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "WizardAssignment:build"
+            "browserTarget": "WizardAssignment:build",
+            "port": 5200
           },
           "configurations": {
             "production": {
