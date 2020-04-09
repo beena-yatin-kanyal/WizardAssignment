@@ -51,36 +51,26 @@
                 <!-- box 2 starts -->
                 <div class="box-2 pt-2">
                     <h3>Step 4: Work Experience Details</h3>
-
                     <div class="row">
                         <div class="col-xl-9 mx-auto mt-3">
-
-                            <!-- Job-1 -->
-                            <div class="form-group form-row">
-                                <label for="job-1" class="col-md-3 col-form-label">Job 1</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="job-1" id="job-1">
+                            <button type="button" class="btn btn-success" (click)="add()">Add More</button>
+                            <div class="form-group form-row" *ngFor="let item of workexplist; let i = index">
+                                <label for="workexp{{i}}" class="col-md-3 col-form-label">
+                                    workexperience {{i+1}}</label>
+                                <div class="col-md-9 input-group">
+                                    <input type="text" class="form-control" [(ngModel)]="item.workexp"
+                                        name="workexp{{i}}" id="workexp{{i}}"
+                                        placeholder="Enter workexperience {{i+1}}">
+                                    <div style="margin-left: 10px;">
+                                        <button type="button" class="btn btn-danger" (click)="remove(i)"
+                                            *ngIf="i!=0">Remove</button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Job-2 -->
-                            <div class="form-group form-row">
-                                <label for="job-2" class="col-md-3 col-form-label">Job 2</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="job-2" id="job-2">
-                                </div>
-                            </div>
-
-                            <!-- Job-3 -->
-                            <div class="form-group form-row">
-                                <label for="job-3" class="col-md-3 col-form-label">Job 3</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="job-3" id="job-3">
-                                </div>
-                            </div>
-
                         </div>
                     </div>
+                    <span *ngIf="showErrorMessage" class="text-danger">Duplicate workexperience present. Please check
+                        form.</span>
 
                 </div>
                 <!-- box 2 ends -->
@@ -88,7 +78,8 @@
 
             <div class="card-footer text-right">
                 <a class="btn btn-warning mr-2" routerLink="/skills">Back</a>
-                <a class="btn btn-danger" routerLink="/wizardfinished">Close</a>
+                <!-- <a class="btn btn-danger" routerLink="/wizardfinished">Close</a> -->
+                <a class="btn btn-success" (click)="validate()">Close</a>
             </div>
 
         </div>

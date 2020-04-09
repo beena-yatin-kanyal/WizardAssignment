@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from "lodash";
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-workexperience',
@@ -7,9 +9,39 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WorkexperienceComponent implements OnInit {
 
-  constructor() { }
+  workexplist: any[];
+  showErrorMessage: boolean;
+
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    this.workexplist = [{ workexp: '' }];
+    this.showErrorMessage = false;
+  }
+
+  add() {
+    this.workexplist.push({ workexp: '' });
+    this.showErrorMessage = false;
+  }
+
+  remove(idx: number) {
+    console.log("Removing field for index id= ", idx);
+    this.workexplist.splice(idx);
+    this.showErrorMessage = false;
+  }
+
+  validate() {
+    const duplicates = _.flow([
+      arr => _.groupBy(arr, 'workexp'),
+      g => _.filter(g, o => o.length > 1),
+      _.flatten
+    ])(this.workexplist);
+    if (duplicates.length > 1) {
+      console.log("Duplicate values are", duplicates);
+      this.showErrorMessage = true;
+    } else {
+      this.router.navigateByUrl('/wizardfinished');
+    }
   }
 
 }

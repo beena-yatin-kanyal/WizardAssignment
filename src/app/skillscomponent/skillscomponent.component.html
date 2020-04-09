@@ -1,13 +1,10 @@
 <div class="row">
     <!-- box at horizontally center-->
     <div class="col-lg-11 col-xl-9 mx-auto">
-
         <div class="card">
-
             <div class="card-header bg-secondary text-white">
                 <h1>Profile Wizard</h1>
             </div>
-
             <div class="card-body">
                 <!-- box 1 starts -->
                 <div class="box-1 rounded">
@@ -47,51 +44,36 @@
                     </div>
                 </div>
                 <!-- box 1 ends -->
-
                 <!-- box 2 starts -->
                 <div class="box-2 pt-2">
                     <h3>Step 3: Skills Details</h3>
-
                     <div class="row">
                         <div class="col-xl-9 mx-auto mt-3">
-
-                            <!-- Skill-1 -->
-                            <div class="form-group form-row">
-                                <label for="skill-1" class="col-md-3 col-form-label">Skill 1</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="skill-1" id="skill-1">
+                            <button type="button" class="btn btn-success" (click)="addSkills()">Add More Skills</button>
+                            <div class="form-group form-row" *ngFor="let item of skillsList; let i = index">
+                                <label for="skill{{i}}" class="col-md-3 col-form-label">
+                                    Skill {{i+1}}</label>
+                                <div class="col-md-9 input-group">
+                                    <input type="text" class="form-control" [(ngModel)]="item.skill" name="skill{{i}}"
+                                        id="skill{{i}}" placeholder="Enter Skill {{i+1}}">
+                                    <div style="margin-left: 10px;">
+                                        <button type="button" class="btn btn-danger" (click)="removeSkills(i)"
+                                            *ngIf="i!=0">Remove Skill</button>
+                                    </div>
                                 </div>
                             </div>
-
-                            <!-- Skill-2 -->
-                            <div class="form-group form-row">
-                                <label for="skill-2" class="col-md-3 col-form-label">Skill 2</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="skill-2" id="skill-2">
-                                </div>
-                            </div>
-
-                            <!-- Skill-3 -->
-                            <div class="form-group form-row">
-                                <label for="skill-3" class="col-md-3 col-form-label">Skill 3</label>
-                                <div class="col-md-9">
-                                    <input type="text" class="form-control" name="skill-3" id="skill-3">
-                                </div>
-                            </div>
-
                         </div>
                     </div>
-
                 </div>
+                <!-- <span>Total skills: {{totalskills}}</span><br /> -->
+                <span *ngIf="showErrorMessage" class="text-danger">Duplicate skill present. Please check form.</span>
                 <!-- box 2 ends -->
             </div>
-
             <div class="card-footer text-right">
                 <a class="btn btn-warning mr-2" routerLink="/contactdetails">Back</a>
-                <a class="btn btn-success" routerLink="/workexperience">Next</a>
+                <!-- <a class="btn btn-success" routerLink="/workexperience">Next</a> -->
+                <a class="btn btn-success" (click)="validate()">Next</a>
             </div>
-
         </div>
-
     </div>
 </div>

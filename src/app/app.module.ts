@@ -10,6 +10,8 @@ import { WorkexperienceComponent } from './workexperience/workexperience.compone
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WizardfinishedComponent } from './wizardfinished/wizardfinished.component';
 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +24,9 @@ import { WizardfinishedComponent } from './wizardfinished/wizardfinished.compone
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
