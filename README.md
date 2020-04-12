@@ -14,7 +14,6 @@ https://www.udemy.com/course/complete-angular-indepth-easy
 
 - 07-04-2020: Section2 - Assignment1 completion + Initial code checkin
 - 09-04-2020: Section3 - Assignment2 completion
-- 09-04-2020: Section3 - Assignment3 completion
- - Code link - https://github.com/beena-yatin-kanyal/udemy-angular8-section3-assignment3
+- 09-04-2020: Section3 - Assignment3 completion - https://github.com/beena-yatin-kanyal/udemy-angular8-section3-assignment3
 - 12-04-2020: Section4 - Assignment4 completion
 
