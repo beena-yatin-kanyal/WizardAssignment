@@ -30,6 +30,10 @@ export class WorkexperienceComponent implements OnInit {
     this.showErrorMessage = false;
   }
 
+  goToPage(uri: string) {
+    this.router.navigateByUrl(uri);
+  }
+
   validate() {
     const duplicates = _.flow([
       arr => _.groupBy(arr, 'workexp'),
@@ -40,7 +44,8 @@ export class WorkexperienceComponent implements OnInit {
       console.log("Duplicate values are", duplicates);
       this.showErrorMessage = true;
     } else {
-      this.router.navigateByUrl('/wizardfinished');
+      // this.router.navigateByUrl('/wizardfinished');
+      this.goToPage('/wizardfinished');
     }
   }
 

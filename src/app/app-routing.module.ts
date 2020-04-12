@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { WelcomeComponent } from './welcome/welcome.component';
-import { PersonaldetailsComponent } from './personaldetails/personaldetails.component';
-import { ContactdetailsComponent } from './contactdetails/contactdetails.component';
-import { SkillscomponentComponent } from './skillscomponent/skillscomponent.component';
-import { WorkexperienceComponent } from './workexperience/workexperience.component';
+import { PersonaldetailsComponent } from './personalmodule/personaldetails/personaldetails.component';
+import { ContactdetailsComponent } from './personalmodule/contactdetails/contactdetails.component';
+import { SkillscomponentComponent } from './knowledgemodule/skillscomponent/skillscomponent.component';
+import { WorkexperienceComponent } from './knowledgemodule/workexperience/workexperience.component';
 import { WizardfinishedComponent } from './wizardfinished/wizardfinished.component';
 
 

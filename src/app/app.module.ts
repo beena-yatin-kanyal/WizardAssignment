@@ -1,32 +1,32 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PersonaldetailsComponent } from './personaldetails/personaldetails.component';
-import { ContactdetailsComponent } from './contactdetails/contactdetails.component';
-import { SkillscomponentComponent } from './skillscomponent/skillscomponent.component';
-import { WorkexperienceComponent } from './workexperience/workexperience.component';
+import { KnowledgemoduleModule } from './knowledgemodule/knowledgemodule.module';
+import { PersonalmoduleModule } from './personalmodule/personalmodule.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WizardfinishedComponent } from './wizardfinished/wizardfinished.component';
 
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonaldetailsComponent,
-    ContactdetailsComponent,
-    SkillscomponentComponent,
-    WorkexperienceComponent,
+    // PersonaldetailsComponent,
+    // ContactdetailsComponent,
+    // SkillscomponentComponent,
+    // WorkexperienceComponent,
     WelcomeComponent,
     WizardfinishedComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule,
-    ReactiveFormsModule
+    // commented as now are directly using the forms module in the knowledge module.
+    // check knowledgemodule.module file.
+    // FormsModule,
+    // ReactiveFormsModule,
+    KnowledgemoduleModule,
+    PersonalmoduleModule
   ],
   providers: [],
   bootstrap: [AppComponent]

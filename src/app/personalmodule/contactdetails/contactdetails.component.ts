@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-contactdetails',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ContactdetailsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   countries: any;
 
@@ -259,4 +260,7 @@ export class ContactdetailsComponent implements OnInit {
     ];
   }
 
+  goToPage(uri: string) {
+    this.router.navigateByUrl(uri);
+  }
 }

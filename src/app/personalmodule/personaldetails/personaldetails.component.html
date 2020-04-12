@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
                 <!-- box 1 starts -->
-                <div class="box-1 rounded">
+                <div class="box-1">
                     <div class="row m-0">
                         <div class="col-lg-3 text-center p-3" style="border-top: solid 5px green">
                             <div>
@@ -17,17 +17,17 @@
                                 <h5>Personal Details</h5>
                             </div>
                         </div>
-                        <div class="col-lg-3 text-center p-3" style="border-top: solid 5px green">
+                        <div class="col-lg-3 text-center p-3" style="border-top: solid 5px #b2cfe4">
                             <div>
-                                <span class="badge badge-pill badge-success p-4" style="font-size:30px">2</span>
+                                <span class="badge badge-pill badge-secondary p-4" style="font-size:30px">2</span>
                             </div>
                             <div>
                                 <h5>Contact Details</h5>
                             </div>
                         </div>
-                        <div class="col-lg-3 text-center p-3" style="border-top: solid 5px green">
+                        <div class="col-lg-3 text-center p-3" style="border-top: solid 5px #b2cfe4">
                             <div>
-                                <span class="badge badge-pill badge-success p-4" style="font-size:30px">3</span>
+                                <span class="badge badge-pill badge-secondary p-4" style="font-size:30px">3</span>
                             </div>
                             <div>
                                 <h5>Skills</h5>
@@ -44,35 +44,35 @@
                     </div>
                 </div>
                 <!-- box 1 ends -->
+
                 <!-- box 2 starts -->
                 <div class="box-2 pt-2">
-                    <h3>Step 3: Skills Details</h3>
+                    <h3>Step 1: Personal Details</h3>
                     <div class="row">
                         <div class="col-xl-9 mx-auto mt-3">
-                            <button type="button" class="btn btn-success" (click)="addSkills()">Add More Skills</button>
-                            <div class="form-group form-row" *ngFor="let item of skillsList; let i = index">
-                                <label for="skill{{i}}" class="col-md-3 col-form-label">
-                                    Skill {{i+1}}</label>
-                                <div class="col-md-9 input-group">
-                                    <input type="text" class="form-control" [(ngModel)]="item.skill" name="skill{{i}}"
-                                        id="skill{{i}}" placeholder="Enter Skill {{i+1}}">
-                                    <div style="margin-left: 10px;">
-                                        <button type="button" class="btn btn-danger" (click)="removeSkills(i)"
-                                            *ngIf="i!=0">Remove Skill</button>
-                                    </div>
+                            <!-- First name -->
+                            <div class="form-group form-row">
+                                <label for="firstName" class="col-md-3 col-form-label">First Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="firstName" id="firstName">
                                 </div>
                             </div>
+                            <!-- Last name -->
+                            <div class="form-group form-row">
+                                <label for="lastName" class="col-md-3 col-form-label">Last Name</label>
+                                <div class="col-md-9">
+                                    <input type="text" class="form-control" name="lastName" id="lastName">
+                                </div>
+                            </div>
+
                         </div>
                     </div>
+
                 </div>
-                <!-- <span>Total skills: {{totalskills}}</span><br /> -->
-                <span *ngIf="showErrorMessage" class="text-danger">Duplicate skill present. Please check form.</span>
                 <!-- box 2 ends -->
             </div>
             <div class="card-footer text-right">
-                <a class="btn btn-warning mr-2" routerLink="/contactdetails">Back</a>
-                <!-- <a class="btn btn-success" routerLink="/workexperience">Next</a> -->
-                <a class="btn btn-success" (click)="validate()">Next</a>
+                <a class="btn btn-success" (click)="goToPage('/contactdetails')">Next</a>
             </div>
         </div>
     </div>

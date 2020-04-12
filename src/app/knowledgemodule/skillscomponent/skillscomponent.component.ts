@@ -34,6 +34,10 @@ export class SkillscomponentComponent implements OnInit {
     this.showErrorMessage = false;
   }
 
+  goToPage(uri: string) {
+    this.router.navigateByUrl(uri);
+  }
+
   validate() {
     const duplicates = _.flow([
       arr => _.groupBy(arr, 'skill'),
@@ -44,7 +48,8 @@ export class SkillscomponentComponent implements OnInit {
       console.log("Duplicate values are", duplicates);
       this.showErrorMessage = true;
     } else {
-      this.router.navigateByUrl('/workexperience');
+      // this.router.navigateByUrl('/workexperience');
+      this.goToPage('/workexperience');
     }
   }
 }
