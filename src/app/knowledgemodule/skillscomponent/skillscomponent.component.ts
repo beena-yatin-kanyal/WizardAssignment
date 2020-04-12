@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 // Moved to DuplicateFinderService.
 // import * as _ from "lodash";
-import { Router } from '@angular/router';
+// Moved to NavigatorService.
+// import { Router } from '@angular/router';
 import { DuplicateFinderService } from 'src/app/services/duplicatefinder/duplicate-finder.service';
+import { NavigatorService } from 'src/app/services/navigate/navigator.service';
 
 @Component({
   selector: 'app-skillscomponent',
@@ -15,7 +17,7 @@ export class SkillscomponentComponent implements OnInit {
   totalskills: number;
   showErrorMessage: boolean;
 
-  constructor(private router: Router,
+  constructor(private navigatorServ: NavigatorService,
     private duplicateFinderServ: DuplicateFinderService) { }
 
   ngOnInit(): void {
@@ -38,11 +40,12 @@ export class SkillscomponentComponent implements OnInit {
   }
 
   goToPage(uri: string) {
-    this.router.navigateByUrl(uri);
+    this.navigatorServ.goToUrl(uri);
   }
 
   validate() {
-    const duplicates = this.duplicateFinderServ.findDuplicatesByKey(this.skillsList, 'skill');
+    const duplicates =
+      this.duplicateFinderServ.findDuplicatesByKey(this.skillsList, 'skill');
     if (duplicates.length > 1) {
       console.log("Duplicate values are", duplicates);
       this.showErrorMessage = true;

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+// Moved to NavigatorService.
+// import { Router } from '@angular/router';
 import { CountriesServiceService } from 'src/app/services/country/countries-service.service';
+import { NavigatorService } from 'src/app/services/navigate/navigator.service';
 
 @Component({
   selector: 'app-contactdetails',
@@ -9,7 +11,7 @@ import { CountriesServiceService } from 'src/app/services/country/countries-serv
 })
 export class ContactdetailsComponent implements OnInit {
 
-  constructor(private router: Router,
+  constructor(private navigatorServ: NavigatorService,
     private countriesServ: CountriesServiceService) { }
 
   countries: any;
@@ -19,6 +21,6 @@ export class ContactdetailsComponent implements OnInit {
   }
 
   goToPage(uri: string) {
-    this.router.navigateByUrl(uri);
+    this.navigatorServ.goToUrl(uri);
   }
 }
