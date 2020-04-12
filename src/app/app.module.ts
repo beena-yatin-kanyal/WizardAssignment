@@ -7,7 +7,6 @@ import { PersonalmoduleModule } from './personalmodule/personalmodule.module';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { WizardfinishedComponent } from './wizardfinished/wizardfinished.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,

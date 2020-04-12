@@ -5,8 +5,6 @@ import { WorkexperienceComponent } from './workexperience/workexperience.compone
 // Importing forms module in the knowledge module as it was not getting imported directly from the app.module.ts file.
 import { FormsModule } from '@angular/forms';
 
-
-
 @NgModule({
   declarations: [
     SkillscomponentComponent,
