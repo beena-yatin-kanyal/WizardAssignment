@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import * as _ from "lodash";
+// Moved to DuplicateFinderService.
+// import * as _ from "lodash";
 import { Router } from '@angular/router';
+import { DuplicateFinderService } from 'src/app/services/duplicatefinder/duplicate-finder.service';
 
 @Component({
   selector: 'app-workexperience',
@@ -12,7 +14,8 @@ export class WorkexperienceComponent implements OnInit {
   workexplist: any[];
   showErrorMessage: boolean;
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private duplicateFinderServ: DuplicateFinderService) { }
 
   ngOnInit(): void {
     this.workexplist = [{ workexp: '' }];
@@ -35,11 +38,7 @@ export class WorkexperienceComponent implements OnInit {
   }
 
   validate() {
-    const duplicates = _.flow([
-      arr => _.groupBy(arr, 'workexp'),
-      g => _.filter(g, o => o.length > 1),
-      _.flatten
-    ])(this.workexplist);
+    const duplicates = this.duplicateFinderServ.findDuplicatesByKey(this.workexplist, 'workexp');
     if (duplicates.length > 1) {
       console.log("Duplicate values are", duplicates);
       this.showErrorMessage = true;
