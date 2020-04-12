@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+// Adding loadash to this project to have advanced javascript methods.
+// Offers easy usage of the application.
 import * as _ from "lodash";
 
 // Keeping it in a root for differential purpose only.
